@@ -1,0 +1,8 @@
+@if (modelo){
+    <app-mostrar-errores [errores]="errores"></app-mostrar-errores>
+
+    <app-formulario-producto titulo="Editar Laptop" [modelo]="modelo" 
+    (posteoFormulario)="guardarCambios($event)"></app-formulario-producto>
+} @else {
+    <app-loading></app-loading>
+}

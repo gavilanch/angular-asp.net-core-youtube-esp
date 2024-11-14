@@ -1,0 +1,13 @@
+<h2>{{titulo}}</h2>
+
+<form (submit)="guardarCambios()" [formGroup]="form">
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input [formControl]="form.controls.nombre" matInput />
+        <mat-error>{{obtenerErroresCampoNombre()}}</mat-error>
+    </mat-form-field>
+    <div>
+        <button type="submit" [disabled]="form.invalid" mat-flat-button>Guardar Cambios</button>
+        <a mat-stroked-button routerLink="/productos">Cancelar</a>
+    </div>
+</form>
