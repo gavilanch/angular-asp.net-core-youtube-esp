@@ -1,0 +1,16 @@
+<h2>{{titulo}}</h2>
+
+<form (submit)="guardarCambios()" [formGroup]="form">
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input [formControl]="form.controls.nombre" matInput />
+        <mat-error>{{obtenerErroresCampoNombre()}}</mat-error>
+        @if (form.controls.nombre.pending){
+            <mat-spinner matSuffix [diameter]="16" style="margin-right: 1rem;"></mat-spinner>
+        }
+    </mat-form-field>
+    <div>
+        <button type="submit" [disabled]="form.invalid || form.pending" mat-flat-button>Guardar Cambios</button>
+        <a mat-stroked-button routerLink="/productos">Cancelar</a>
+    </div>
+</form>
